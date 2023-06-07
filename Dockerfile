@@ -15,7 +15,9 @@ EXPOSE 8080
 ENTRYPOINT ["java","-jar","/usr/local/lib/employee-system-api-0.0.1-SNAPSHOT.jar"]
 
 FROM mysql
+MAINTAINER awoseemobabajide@gmail.com
 
-COPY ./create-local-db.sql/
+ENV MYSQL_ROOT_PASSWORD Jide@123
+ADD create-local-db.sql /docker-entrypoint-initdb.d
 
-CMD [ "mysqld", "--init-file=/create-local-db.sql" ]
+EXPOSE 3306
