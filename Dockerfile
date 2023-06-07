@@ -16,6 +16,6 @@ ENTRYPOINT ["java","-jar","/usr/local/lib/employee-system-api-0.0.1-SNAPSHOT.jar
 
 FROM mysql
 
-COPY ./employeedb.sql/tmp
+COPY ./create-local-db.sql/tmp
 
 CMD [ "mysqld", "--init-file=/tmp/create-local-db.sql" ]
